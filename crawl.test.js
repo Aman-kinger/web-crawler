@@ -1,7 +1,6 @@
 const { test, expect } = require('@jest/globals')
-const { normalizeURL } = require('./crawl.js')
+const { normalizeURL,getURLSFromHTML } = require('./crawl.js')
 const { JSDOM } = require('jsdom');
-const { getURLSFromHTML } = require('./crawl.js');
 
 
 describe('normalizeURL tests', () => {
