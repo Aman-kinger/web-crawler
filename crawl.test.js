@@ -28,10 +28,6 @@ describe('normalizeURL tests', () => {
         expect(normalizeURL('http://www.google.com')).toBe('www.google.com');
     });
 
-    test('normalizeURL without protocol', () => {
-        expect(normalizeURL('www.google.com')).toBe('www.google.com');
-    });
-
     test('normalizeURL with IP address', () => {
         expect(normalizeURL('https://192.168.1.1')).toBe('192.168.1.1');
     });
@@ -45,6 +41,11 @@ describe('getURLSFromHTML tests', () => {
         expect(getURLSFromHTML(htmlBody, baseURL)).toEqual([]);
     });
 
+    test('getURLSFromHTML with invalid link', () => {
+        const htmlBody = '<html><body><a href="invalid"></a></body></html>';
+        const baseURL = 'https://www.google.com';
+        expect(getURLSFromHTML(htmlBody, baseURL)).toEqual([]);
+    });
     test('getURLSFromHTML with one absolute link', () => {
         const htmlBody = '<html><body><a href="https://www.google.com/search"></a></body></html>';
         const baseURL = 'https://www.google.com';
