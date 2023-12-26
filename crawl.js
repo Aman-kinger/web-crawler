@@ -15,6 +15,7 @@ function normalizeURL(url){
     return new_url;
 }
 
+
 function getURLSFromHTML(htmlBody, currentURL) {
     const dom = new JSDOM(htmlBody);
     let urls = [];
